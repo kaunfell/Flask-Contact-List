@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+{% block title %}
+Contact List
+{% endblock %}
+
+{% block content %}
+<h1 class="border-light-subtle border-bottom w-25 mx-auto p-3 my-5">Contact List App</h1>
+
+<div class="m-5 border border-info-subtle rounded w-50 mx-auto bg-light ">
+    <h2 class="m-5">In this app you can: </h2>
+    <ul class="w-50 mx-auto text-start list-unstyled">
+        <li> 📌 add contacts with name, number and email</li>
+        <li> 📌 delete contacts</li>
+        <p class="my-3"><small>Note: the contacts are saved temporarily</small></p>
+    </ul>
+    <p class="my-4">To test the app, see the <a href="{{ url_for('contacts') }}">Contacts page</a></p>
+</div>
+{% endblock%}
+
+

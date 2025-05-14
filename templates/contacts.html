@@ -1,0 +1,82 @@
+{% extends "base.html"%}
+{% block title %}
+Contacts
+{% endblock %}
+
+{% block content %}
+<h1 class="border-light-subtle border-bottom w-25 mx-auto p-3">Contact List 📋</h1>
+
+
+
+<div class="border border-info-subtle rounded w-50 mx-auto my-5 bg-light">
+    
+
+<table class="table w-75 mx-auto m-5  ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First </th>
+      <th scope="col">Last</th>
+      <th scope="col">Num </th>
+      <th scope="col">Email </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for contact in contacts%}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{contact[0]}}</td>
+      <td>{{ contact[1] }}</td>
+      <td>{{ contact[2] }}</td>
+      <td>{{ contact[3] }}</td>
+
+      
+      <td><a href="{{ url_for('delete_contact', index=loop.index0) }}" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+{% endfor%}    
+  </tbody>
+</table>
+
+</div>
+
+
+{% endblock%}
+
+
+{% block content2%}
+
+<form action="#" method="POST" class="w-25 mx-auto text-start border border-primary-subtle rounded p-3 bg-light">
+<div class="form-group row my-1">
+    <label class="col-lg-4">🙍🏻‍♂️ Name: </label>
+    <div class="col-lg-8">
+      <input type="text" class="form-control" name="name" id="name">
+    </div>
+</div>
+    
+<div class="form-group row my-1">
+    <label class="col-lg-4">🙍🏻‍♂️ Last name: </label>
+    <div class="col-lg-8">
+      <input type="text" class="form-control" name="lname" id="lname">
+    </div> 
+</div>
+
+<div class="form-group row my-1">
+    <label class="col-lg-4">📲 Num: </label>
+        <div class="col-lg-8">
+      <input type="num" class="form-control" name="num" id="num">
+    </div> 
+</div>
+
+<div class="form-group row my-1">
+    <label class="col-lg-4">📧 Email: </label>
+    <div class="col-lg-8">
+      <input type="email" class="form-control" name="email" id="email">
+    </div>  
+</div>
+<div class="my-3 text-end">
+    <button type="submit" class="btn btn-primary ">Submit</button>
+</div>
+
+
+</form>
+{% endblock%}
